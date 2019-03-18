@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="ZipForge, Version=3.0.5.0, Culture=neutral, PublicKeyToken=3a6e82ca8e39718a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DDl\ZipForge.dll</HintPath>
+      <HintPath>..\..\..\ZipForge.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Work_FTP.cs" />
     <Compile Include="ZipFilesByMask.cs" />
   </ItemGroup>
   <ItemGroup>

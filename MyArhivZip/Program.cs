@@ -40,9 +40,14 @@ namespace MyArhivZip
 
         static void Main(string[] args)
         {
+            Work_FTP work_FTP = new Work_FTP();
 
-   
-           MinuVibora(); //Запуск меню выбора
+            // MinuVibora(); //Запуск меню выбора
+
+            //Тестовой запуск отправки фтп
+
+            work_FTP.Upload();
+            Console.ReadKey();
           
         }
 
