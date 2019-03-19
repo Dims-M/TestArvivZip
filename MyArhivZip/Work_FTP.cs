@@ -44,7 +44,7 @@ namespace MyArhivZip
                 req.UseBinary = true;
 
                 // зарыть соединение после запроса
-                req.KeepAlive = false;
+                req.KeepAlive = true;
 
                 // создаем поток для работы с данными + передаем файл в поток
                 Stream stream = File.OpenRead(filePath);
@@ -92,13 +92,33 @@ namespace MyArhivZip
             // запуск метода загрузки на фтп с параметрами. 
             //  UploadFile(textBox1.Text, "/C:/1.txt","etesftpmail","D51215045");
             // юкоз
-            UploadFile(@"ftp://tesftpmail.ucoz.net", @"C:\adb\test.txt", @"etesftpmail", @"D51215045");
+            // UploadFile(@"ftp://tesftpmail.ucoz.net", @"C:\adb\test.txt", @"etesftpmail", @"D51215045");
             // beget.com
-            //  UploadFile(@"ftp://b91790o4.beget.tech", textBox3.Text.ToString() , @"b91790o4", @"YhvvI89Y");
+            //UploadFile(@"ftp://b91790o4.beget.tech", @"C:\adb\test.jpg", @"b91790o4", @"YhvvI89Y");
+            //отправка бд битрейда
+            // UploadFile(@"ftp://b91790o4.beget.tech", @"C:\BETRADE2\btrade.db3", @"b91790o4", @"YhvvI89Y");C:\BETRADE2\BTRADE2.7z
+             UploadFile(@"ftp://kassa16.ru/Alar/Oktyabrskaya23/", @"C:\BETRADE2\BTRADE2.7z", @"Iskan", @"6350025");
         }
 
 
-        //метод выбора пути
+        public void arvihBD()
+        {
+            string adresFtp = @"ftp://kassa16.ru/Alar/Oktyabrskaya23/";
+            string myLogin = @"iskan";
+            string myPass = @"6350025";
+            string pathBD = @"C:\BETRADE2\BTRADE2.7z";
+           // string pathBD = @"C:\BETRADE2\btrade.db3";
+
+            Console.WriteLine("Запуск архивирования БД товаров");
+
+            UploadFile(adresFtp, pathBD, myLogin, myPass);
+            Console.WriteLine("....*****....");
+            Console.ReadKey();
+
+        }
+
+
+        //метод выбора нужного файла через окно выбора
         /// <summary>
         /// Метод выбора нужного файла. В консоле не работет. 
         /// </summary>

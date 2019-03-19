@@ -16,7 +16,7 @@ namespace MyArhivZip
         private static string pathArhiv = @"c:\1";
 
         /// <summary>
-        /// запуск архивирования
+        /// запуск архивирования с настройками по умолчанию
         /// </summary>
         public static void Checet()
         {
@@ -32,6 +32,50 @@ namespace MyArhivZip
                // archiver.AddFiles("*.dll");
                 //archiver.AddFiles("*.jpg");
                 archiver.AddFiles("*.*");
+
+                // archiver.BaseDir = @"D:\";
+                // archiver.AddFiles(@"d:\file.txt"); //Добавим один файл
+                // archiver.AddFiles(@"d:\Test"); //Запакуем ещё и папку
+                archiver.CloseArchive(); //Закрываем архив
+            }
+            //Ловим ошибки
+            catch (ArchiverException ae)
+            {
+                Console.WriteLine("Message: {0}\t Произошла ошибка: {1}",
+                                  ae.Message, ae.ErrorCode);
+                Console.ReadLine();
+            }
+            Console.WriteLine("Процес архивирования завершен....\t\n");
+        }
+
+        /// <summary>
+        /// Архивация файла с праметром места хранения. Тамже архив и создается.
+        /// </summary>
+        /// <param name="pathFail"></param>
+        public static void ArhivPathFail(string pathFail, string endPathFail)
+        {
+            // Create an instance of the ZipForge class
+            ZipForge archiver = new ZipForge();
+
+            try
+            {
+                //archiver.FileName = @"C:\test.zip"; //Куда сохранить файл результата сжатия
+                archiver.FileName = endPathFail; //Куда сохранить файл результата сжатия
+               
+                archiver.OpenArchive(System.IO.FileMode.Create); //Настраиваем дллку на работу с новым архивом
+
+                // archiver.BaseDir = @"C:\123"; //Папка где лежат все файлы для взятия
+                // archiver.IsValidArchiveFile();
+                
+                archiver.AddFiles(pathFail); // Добавляем в архив нужный файл
+                archiver.Password = "123"; // пароль 
+
+                // archiver.BaseDir = pathFail; //Папка где лежат все файлы для взятия
+
+                // archiver.AddFiles("*.exe"); //Берём все файлы с расширением exe
+                // archiver.AddFiles("*.dll");
+                //archiver.AddFiles("*.jpg");
+                //archiver.AddFiles("*.*");
 
                 // archiver.BaseDir = @"D:\";
                 // archiver.AddFiles(@"d:\file.txt"); //Добавим один файл
@@ -81,7 +125,9 @@ namespace MyArhivZip
             }
         }
 
-
+        /// <summary>
+        /// Сделать скрытую папку 
+        /// </summary>
         public static void NoVisiblePapka()
         {
             // string path = @"c:\1\HiddenFolder"; // путь где будет находится наша папка

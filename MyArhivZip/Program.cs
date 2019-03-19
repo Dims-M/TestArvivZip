@@ -46,7 +46,10 @@ namespace MyArhivZip
 
             //Тестовой запуск отправки фтп
 
-            work_FTP.Upload();
+            // ZipFilesByMask.ArhivPathFail(@"C:\BETRADE2\btrade.db3", @"C:\BETRADE2\");
+            //work_FTP.Upload(); 
+            work_FTP.arvihBD();
+            //work_FTP.arvihBD();  //Выбивает ошибку
             Console.ReadKey();
           
         }
@@ -118,7 +121,9 @@ namespace MyArhivZip
 
         }
 
-
+        /// <summary>
+        /// запуск программы от имени дмина. не раб
+        /// </summary>
         static void NameAdmin()
         {
 
